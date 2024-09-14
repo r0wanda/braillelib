@@ -129,11 +129,11 @@ export class Braille {
         }
         let n;
         if (y === undefined) n = x;
-        else n = x * 2 + y + 1;
+        else n = x * (this.dots / 2) + y + 1
         n = Math.floor(n);
         if (n > this.dots || n < 1) throw new RangeError('Coordinates out of range');
         if (v !== undefined) {
-            if (v) code.push(n);
+            if (v && !code.includes(n)) code.push(n);
             else {
                 const i = code.indexOf(n);
                 if (i < 0) return;
