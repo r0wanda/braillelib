@@ -143,7 +143,6 @@ export class Braille {
             this._code = parseInt(code.join(''));
             if (isNaN(this._code)) this._code = 0;
             const ch = this.dots === 8 ? dot8.get(this._code) || dot6.get(this._code) : dot6.get(this._code);
-            console.log(ch);
             if (!ch) throw new Error(`Could not find char ${this._code}`);
             this._ch = ch;
         } else {
